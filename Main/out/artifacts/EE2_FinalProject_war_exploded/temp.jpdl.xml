@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process name="callB" id="callB" xmlns="http://jbpm.org/4.0/jpdl">
+	<start>
+		<transition to="one"/>
+	</start>
+	<java class="com.J2EE.model.ProcessTest" method="b" name="one">
+		<transition to="two"/>
+	</java>
+	<java class="com.J2EE.model.ProcessTest" method="b" name="two">
+		<transition to="three"/>
+	</java>
+	<java class="com.J2EE.model.ProcessTest" method="b" name="three">
+		<transition to="theEnd"/>
+	</java>
+	<end name="theEnd"/>
+</process>

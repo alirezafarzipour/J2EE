@@ -1,0 +1,26 @@
+create user dbadmin identified by myjava123;
+grant dba to dbadmin;
+
+connect dbadmin/myjava123;
+
+create table users(username varchar2(50), password varchar2(200));
+create table roles(username varchar2(50), role varchar2(20));
+
+
+create role user_manager;
+grant select on users to user_manager;
+grant select on roles to user_manager;
+grant connect to user_manager;
+create user user_check identified by myjava123;
+grant user_manager to user_check;
+
+
+create table person (id number, name varchar2(30), family varchar2(30), username varchar2(50), isdeleted number);
+create table admin (id number, name varchar2(30), family varchar2(50), username varchar2(50), isdeleted number);
+
+
+CREATE SEQUENCE batis_seq START WITH 1 INCREMENT BY 1;
+
+
+insert into users values ('alireza', '80C9EF0FB86369CD25F90AF27EF53A9E');
+insert into roles values ('alireza', 'admin');

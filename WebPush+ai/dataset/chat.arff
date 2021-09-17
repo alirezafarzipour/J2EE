@@ -1,0 +1,44 @@
+@relation chat
+@attribute content string
+@attribute type {salary,work,vacation,problem}
+
+@data
+'darkhast afzayesh hoghoq daram',salary
+'darkhast morakhasi daram',vacation
+'hoghoq man variz nashode',salary
+'chara bayad sar kar biam',work
+'mikham beram morakhasi',vacation
+'tatilat be bad mokol shod',vacation
+'feshar kar ziade',work
+'khaste shodam',problem
+'emroz tatil ast',vacation
+'kar sakhte',work
+'kar',work
+'polamo bede',salary
+'polam variz nashode',salary
+'be komak niaz daram',problem
+'be komak ehtiaj daram',problem
+'inja fohsh midan',problem
+'hoghoq bishtar mikham',salary
+'time kari zaid ast',work
+'pol kam daram ziad kon',salary
+'moshkel raft va omad daram',problem
+'cheghadr kar darim',work
+'vam mikham',salary
+'moshkel daram',problem
+'darkhast va daram',salary
+'tatilad aghab oftad',vacation
+'hoghoq baghie bistare',salary
+'niaz be miz jadid daram',work
+'semat man ra avaz kon',work
+'dar morakhasi hastam',vacation
+'tatilat beham khord',vacation
+'moshkel dir residan daram',problem
+'system kharab ast',work
+'mahal kar man kasif ast',work
+'be keifiat qaza eteraz daram',problem
+'tedad morakhasi man kam ast',vacation
+'bekhter fon aghvam tatilat naraftim',vacation
+'man be yek hamkar niaz daram',work
+'kar man ziad ast',work
+

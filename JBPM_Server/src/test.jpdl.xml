@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process name="startSale2" id="startSale2" xmlns="http://jbpm.org/4.0/jpdl">
+	<start>
+		<transition to="one"/>
+	</start>
+	<java class="com.J2EE.model.ProcessTest" method="a" name="one">
+		<transition to="person"/>
+	</java>
+	<state name="person">
+		<transition to="two"/>
+	</state>
+	<java class="com.J2EE.model.ProcessTest" method="b" name="two">
+		<transition to="admin"/>
+	</java>
+	<state name="admin">
+		<transition to="three"/>
+	</state>
+	<java class="com.J2EE.model.ProcessTest" method="c" name="three">
+		<transition to="four"/>
+	</java>
+	<java class="com.J2EE.model.ProcessTest" method="d" name="four">
+		<transition to="theEnd"/>
+	</java>
+	<end name="theEnd"/>
+</process>

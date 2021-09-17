@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMapper">
+
+
+    <resultMap id="result" type="com.J2EE.model.User">
+        <result property="username" column="USERNAME"/>
+        <result property="role" column="ROLE"/>
+        <result property="password" column="PASSWORD"/>
+    </resultMap>
+
+    <insert id="insertUser" parameterType="com.J2EE.model.User" statementType="PREPARED" flushCache="true">
+        INSERT INTO USERS (username, password)VALUES (#{username}, #{password})
+    </insert>
+
+    <insert id="insertRole" parameterType="com.J2EE.model.User" statementType="PREPARED" flushCache="true">
+        INSERT INTO ROLES (username, role) VALUES (#{username}, #{role})
+    </insert>
+
+</mapper>

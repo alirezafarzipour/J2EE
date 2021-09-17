@@ -1,0 +1,23 @@
+tomee.xml:
+
+<Resource id="MyConnection" type="DataSource">
+	JdbcDriver oracle.jdbc.driver.OracleDriver
+	JdbcUrl jdbc:oracle:thin:@localhost:1521:orcl
+	UserName user_check
+	Password myjava123
+	maxIdle  5
+	maxActive 10
+</Resource>
+
+------------------------------------
+
+server.xml:
+
+<Realm
+        className="org.apache.catalina.realm.DataSourceRealm"
+	dataSourceName="MyConnection"
+	userTable="dbadmin.users"
+        userNameCol="username"
+        userCredCol="password"
+	userRoleTable="dbadmin.roles"
+        roleNameCol="role"/>

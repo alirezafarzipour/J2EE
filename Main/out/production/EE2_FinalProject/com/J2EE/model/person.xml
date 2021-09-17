@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PersonMapper">
+
+
+    <resultMap id="result" type="com.J2EE.model.Person">
+        <result property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="family" column="FAMILY"/>
+        <result property="username" column="USERNAME"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="result" statementType="PREPARED" useCache="true">
+        SELECT ID,NAME,FAMILY,USERNAME FROM PERSON WHERE ISDELETED=0 ORDER BY id
+    </select>
+
+    <select id="getById" parameterType="com.J2EE.model.Person" resultMap="result" statementType="PREPARED" useCache="true">
+        SELECT * FROM PERSON WHERE ID = #{id} AND ISDELETED=0
+    </select>
+
+    <select id="getByUsername" parameterType="com.J2EE.model.Person" resultMap="result" statementType="PREPARED" useCache="true">
+        SELECT * FROM PERSON WHERE USERNAME = #{username} AND ISDELETED=0
+    </select>
+
+<!--    <delete id="deleteById" parameterType="com.J2EE.model.Person" statementType="PREPARED" flushCache="true">-->
+<!--        DELETE FROM PERSON WHERE ID = #{id}-->
+<!--    </delete>-->
+
+    <update id="deleteById" parameterType="com.J2EE.model.Person" statementType="PREPARED" flushCache="false">
+        UPDATE PERSON
+        SET
+            ISDELETED = 1
+        WHERE ID = #{id}
+    </update>
+
+    <insert id="insert" parameterType="com.J2EE.model.Person" statementType="PREPARED" flushCache="true">
+        <selectKey resultType="long" keyProperty="id" order="BEFORE">
+            SELECT BATIS_SEQ.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO PERSON (id,name,family,username,isdeleted) VALUES (#{id},#{name},#{family},#{username},0)
+    </insert>
+
+    <update id="update" parameterType="com.J2EE.model.Person" statementType="PREPARED" flushCache="true">
+        UPDATE PERSON
+        SET
+            NAME = #{name},
+            FAMILY = #{family}
+        WHERE ID = #{id}
+    </update>
+
+</mapper>
