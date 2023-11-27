@@ -1,20 +1,41 @@
-# Simple j2ee from combination of EJB Rest, JBOSS JBPM and Push message (AI included)
+# Project Overview: Simple J2EE with EJB Rest, JBoss JBPM, and Push Message Integration (Including AI)
 
-### Features
-* All message between users are stored im MongoDB and the topic under discussion is idetified by AI 
-* We can add new process and start any added process from admin panel 
-* All user behaviors are stored in MongoDB.
+## Features
 
+* **Message Storage:** All user messages are stored in MongoDB, and the topic under discussion is intelligently identified by AI.
+* **Dynamic Process Management:** Admins can add new processes and start any added process from the admin panel.
+* **User Behavior Tracking:** All user behaviors are logged and stored in MongoDB.
 
-### Config:
-> *This project have three parts that must be on three different server but these config are on one serve*
+## Configuration
 
-* Main project on TomEE `/localhost:8080` , JMX PORT: `1101` or `1102` or ...
-* Push Message chat Server on Tomcat `/localhost:80` , JMX PORT: `1100`
-* Process Engine Server with RMI , PORT: `1099`
+**This project consists of three distinct parts, each running on a different server. The configurations mentioned below are for a single server that hosts all three parts.**
 
-#### NOTICE.
-> * All logs store in MongoDB `localhost:27017`  and before run project MUST be online.
-> * All OracleDB command and TomEE config for JavaStandardSecurity is in `/Config` directory. 
-> * In first ProcessEngineServer run, uncomment Create-Drop for Hibernate to create DBschema.
-> * Dataset for AI is in `/Webpush+ai` directory and must be copeid in Desktop.
+### Main Project (TomEE)
+
+- **URL:** `http://localhost:8080`
+- **JMX Port:** `1101` or `1102` or ...
+
+### Push Message Chat Server (Tomcat)
+
+- **URL:** `http://localhost:80`
+- **JMX Port:** `1100`
+
+### Process Engine Server (RMI)
+
+- **RMI Port:** `1099`
+
+### Important Notes
+
+* **MongoDB Logs:**
+  - All logs are stored in MongoDB at `localhost:27017`. Ensure that the server is online before running the project.
+
+* **OracleDB and TomEE Config:**
+  - Find OracleDB commands and TomEE configuration for JavaStandardSecurity in the `/Config` directory.
+
+* **Process Engine Server:**
+  - On the first run of the Process Engine Server, uncomment the "Create-Drop for Hibernate" to create the database schema.
+
+* **AI Dataset:**
+  - The dataset for AI is located in the `/Webpush+ai` directory and must be copied to the Desktop.
+
+**Please refer to the respective directories for detailed OracleDB commands, TomEE configuration, and necessary AI datasets.**
